@@ -9,6 +9,7 @@
 - 优化: ip接口参数ipv4/ipv6优先缺失; 增加结果isChinaMainland字段
 - 优化: 鸿蒙操作系统标识识别
 - 优化: webview组件 src参数以支持默认加载
+- 优化: github action cicd引用node版本
 - 修复: 影视 alist和catopen适配器ext参数序列化处理
 - 修复: 复制提示类型错误
 - 修复: 影视分类只有一个时触发folder模式时没有重置按钮
@@ -18,7 +19,7 @@
 - 修复: dialog-document组件 类型错误; 文件名错误
 - 修复: 部分机器判断electron环境报错
 - 修复: 直播配置 上传时文件筛选参数错误
-- 修复: alert组件info颜色错误; qrcode组件样式错误
+- 修复: ui库 alert组件info颜色错误; qrcode组件样式错误
 - 变动: 参数歧义 isChinaMainland(中国大陆) -> isCHS(简体中文)
 - 变动: 依赖库升级
 
