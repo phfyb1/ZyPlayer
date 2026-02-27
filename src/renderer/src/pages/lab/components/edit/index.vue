@@ -325,7 +325,7 @@ import {
 import { setProxy } from '@/api/proxy';
 import type { IEditor, IEditorOptions, ILang as IEditorLang } from '@/components/code-editor';
 import CodeEditor, { applyExtraLib, applymSuggestions } from '@/components/code-editor';
-import DialogDocument from '@/components/dialog-docment/index.vue';
+import DialogDocument from '@/components/dialog-document/index.vue';
 import GroupBtn from '@/components/group-btn/index.vue';
 import type { IReqConfig, IReqResponse } from '@/components/input-req/index.vue';
 import InputReq from '@/components/input-req/index.vue';
