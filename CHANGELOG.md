@@ -8,6 +8,7 @@
 - 优化: 简化hash路由加载
 - 优化: ip接口参数ipv4/ipv6优先缺失; 增加结果isChinaMainland字段
 - 优化: 鸿蒙操作系统标识识别
+- 优化: webview组件 src参数以支持默认加载
 - 修复: 影视 alist和catopen适配器ext参数序列化处理
 - 修复: 复制提示类型错误
 - 修复: 影视分类只有一个时触发folder模式时没有重置按钮
