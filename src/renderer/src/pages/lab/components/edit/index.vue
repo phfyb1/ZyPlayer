@@ -823,11 +823,11 @@ const handleDomDebugPdfa = async () => {
     }
 
     const resp = await fetchEditDomPdfa({ html, rule });
-    logger('testResult', `<Dom>Pdfa: ${toHMS()} > `, 'verbose', resp);
+    logger('testResult', `${toHMS()} [Pdfa]`, 'verbose', resp);
 
     MessagePlugin.success(t('common.success'));
   } catch (error) {
-    logger('testResult', `<Dom>Pdfa: ${toHMS()} > `, 'error', error);
+    logger('testResult', `${toHMS()} [Pdfa]`, 'error', error);
     MessagePlugin.error(`${t('common.error')}: ${(error as Error).message}`);
   } finally {
     domLoading.value.pdfa = false;
@@ -851,11 +851,11 @@ const handleDomDebugPdfh = async () => {
     }
 
     const resp = await fetchEditDomPdfh({ html, rule });
-    logger('testResult', `<Dom>Pdfh: ${toHMS()} > `, 'verbose', resp);
+    logger('testResult', `${toHMS()} [Pdfh]`, 'verbose', resp);
 
     MessagePlugin.success(t('common.success'));
   } catch (error) {
-    logger('testResult', `<Dom>Pdfh: ${toHMS()} > `, 'error', error);
+    logger('testResult', `${toHMS()} [Pdfh]`, 'error', error);
     MessagePlugin.error(`${t('common.error')}: ${(error as Error).message}`);
   } finally {
     domLoading.value.pdfh = false;
@@ -882,11 +882,11 @@ const handleDataDebugInit = async () => {
     await saveSiteAndWriteFileData();
 
     const resp = await fetchCmsInit({ uuid, force: true });
-    logger('testResult', `<Data>Init: ${toHMS()} > `, 'verbose', resp);
+    logger('testResult', `${toHMS()} [Init]`, 'verbose', resp);
 
     MessagePlugin.success(t('common.success'));
   } catch (error) {
-    logger('testResult', `<Data>Init: ${toHMS()} > `, 'error', error);
+    logger('testResult', `${toHMS()} [Init]`, 'error', error);
     MessagePlugin.error(`${t('common.error')}: ${(error as Error).message}`);
   } finally {
     dataLoading.value.init = false;
@@ -910,11 +910,11 @@ const handleDataDebugHome = async () => {
     }
 
     const resp = await fetchCmsHome({ uuid });
-    logger('testResult', `<Data>Home: ${toHMS()} > `, 'verbose', resp);
+    logger('testResult', `${toHMS()} [Home]`, 'verbose', resp);
 
     MessagePlugin.success(t('common.success'));
   } catch (error) {
-    logger('testResult', `<Data>Home: ${toHMS()} > `, 'error', error);
+    logger('testResult', `${toHMS()} [Home]`, 'error', error);
     MessagePlugin.error(`${t('common.error')}: ${(error as Error).message}`);
   } finally {
     dataLoading.value.home = false;
@@ -938,11 +938,11 @@ const handleDataDebugHomeVod = async () => {
     }
 
     const resp = await fetchCmsHomeVod({ uuid });
-    logger('testResult', `<Data>HomeVod: ${toHMS()} > `, 'verbose', resp);
+    logger('testResult', `${toHMS()} [HomeVod]`, 'verbose', resp);
 
     MessagePlugin.success(t('common.success'));
   } catch (error) {
-    logger('testResult', `<Data>HomeVod: ${toHMS()} > `, 'error', error);
+    logger('testResult', `${toHMS()} [HomeVod]`, 'error', error);
     MessagePlugin.error(`${t('common.error')}: ${(error as Error).message}`);
   } finally {
     dataLoading.value.homeVod = false;
@@ -980,11 +980,11 @@ const handleDataDebugCategory = async () => {
     }
 
     const resp = await fetchCmsCategory({ uuid, tid, page, extend: JSON.stringify(JSON5.parse(filter)) });
-    logger('testResult', `<Data>Category: ${toHMS()} > `, 'verbose', resp);
+    logger('testResult', `${toHMS()} [Category]`, 'verbose', resp);
 
     MessagePlugin.success(t('common.success'));
   } catch (error) {
-    logger('testResult', `<Data>Category: ${toHMS()} > `, 'error', error);
+    logger('testResult', `${toHMS()} [Category]`, 'error', error);
     MessagePlugin.error(`${t('common.error')}: ${(error as Error).message}`);
   } finally {
     dataLoading.value.category = false;
@@ -1014,11 +1014,11 @@ const handleDataDebugDetail = async () => {
     }
 
     const resp = await fetchCmsDetail({ uuid, ids });
-    logger('testResult', `<Data>Detail: ${toHMS()} > `, 'verbose', resp);
+    logger('testResult', `${toHMS()} [Detail]`, 'verbose', resp);
 
     MessagePlugin.success(t('common.success'));
   } catch (error) {
-    logger('testResult', `<Data>Detail: ${toHMS()} > `, 'error', error);
+    logger('testResult', `${toHMS()} [Detail]`, 'error', error);
     MessagePlugin.error(`${t('common.error')}: ${(error as Error).message}`);
   } finally {
     dataLoading.value.detail = false;
@@ -1048,11 +1048,11 @@ const handleDataDebugSearch = async () => {
     }
 
     const resp = await fetchCmsSearch({ uuid, wd, page });
-    logger('testResult', `<Data>Search: ${toHMS()} > `, 'verbose', resp);
+    logger('testResult', `${toHMS()} [Search]`, 'verbose', resp);
 
     MessagePlugin.success(t('common.success'));
   } catch (error) {
-    logger('testResult', `<Data>Search: ${toHMS()} > `, 'error', error);
+    logger('testResult', `${toHMS()} [Search]`, 'error', error);
     MessagePlugin.error(`${t('common.error')}: ${(error as Error).message}`);
   } finally {
     dataLoading.value.search = false;
@@ -1088,11 +1088,11 @@ const handleDataDebugPlay = async () => {
     }
 
     const resp = await fetchCmsPlay({ uuid, flag, play });
-    logger('testResult', `<Data>Play: ${toHMS()} > `, 'verbose', resp);
+    logger('testResult', `${toHMS()} [Play]`, 'verbose', resp);
 
     MessagePlugin.success(t('common.success'));
   } catch (error) {
-    logger('testResult', `<Data>Play: ${toHMS()} > `, 'error', error);
+    logger('testResult', `${toHMS()} [Play]`, 'error', error);
     MessagePlugin.error(`${t('common.error')}: ${(error as Error).message}`);
   } finally {
     dataLoading.value.play = false;
@@ -1127,11 +1127,11 @@ const handleDataDebugProxy = async () => {
     const params = Object.fromEntries(new URL(url).searchParams);
 
     const resp = await fetchCmsProxy({ uuid, ...params });
-    logger('testResult', `<Data>Proxy: ${toHMS()} > `, 'verbose', resp);
+    logger('testResult', `${toHMS()} [Proxy]`, 'verbose', resp);
 
     MessagePlugin.success(t('common.success'));
   } catch (error) {
-    logger('testResult', `<Data>Proxy: ${toHMS()} > `, 'error', error);
+    logger('testResult', `${toHMS()} [Proxy]`, 'error', error);
     MessagePlugin.error(`${t('common.error')}: ${(error as Error).message}`);
   } finally {
     dataLoading.value.proxy = false;
@@ -1228,7 +1228,7 @@ const connectLogger = async () => {
     loggerAbortController.value = null;
     active.value.supportLogger = true;
     console.error('Connect logger module error:', error);
-    logger('logger', `<Logger>${toHMS()} > `, 'error', error);
+    logger('logger', toHMS(), 'error', error);
     MessagePlugin.error(`${t('component.terminal.logger.message.error')}: ${(error as Error).message}`);
   }
 };
