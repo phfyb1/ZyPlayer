@@ -4,7 +4,7 @@
 
 ## 3.4.3
 
-- 特性: vscode增加mcp工具(swagger-mcp|@debugelectron/debug-electron-mcp)
+- 特性: vscode增加mcp工具
 - 优化: 简化hash路由加载
 - 优化: ip接口参数ipv4/ipv6优先缺失; 增加结果isChinaMainland字段
 - 优化: 鸿蒙操作系统标识识别
