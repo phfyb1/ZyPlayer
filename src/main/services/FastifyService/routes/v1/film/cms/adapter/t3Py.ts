@@ -123,7 +123,7 @@ class ConnectService extends PythonService {
 
     try {
       await new Promise((resolve, reject) =>
-        this.runSpawn(['main.py', '--ctrl-port', String(this.ctrlPort)], {
+        this.runSpawn(['main.py', '--ctrl-port', String(this.ctrlPort)], true, {
           stdoutCb: async () => {
             const pids = await this.matchProcess(args.join(' '));
             if (pids.length) {
