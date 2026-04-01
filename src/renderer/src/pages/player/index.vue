@@ -155,12 +155,10 @@ const handlePlayerCreate = async (
     const finalItem: IMultiPlayerOptions = {
       ...item,
       url: handleUrlAdRemove(item.url, item.skipAd),
-      quality: (item.quality || [])
-        .reduce((acc, cur, i) => {
-          if (i % 2 === 0) acc.push({ name: cur, url: item.quality[i + 1] });
-          return acc;
-        }, [])
-        .map((q) => ({ ...q, url: handleUrlAdRemove(q.url, item.skipAd) })),
+      quality: (item.quality || []).reduce<Array<{ name: string; url: string }>>((acc, cur, i, arr) => {
+        if (i % 2 === 0 && arr[i + 1]) acc.push({ name: handleUrlAdRemove(cur, item.skipAd), url: arr[i + 1] });
+        return acc;
+      }, []),
     };
     playerFormData.value = merge(playerFormData.value, finalItem);
     await playerRef.value?.create(playerFormData.value, player.type, mode);
