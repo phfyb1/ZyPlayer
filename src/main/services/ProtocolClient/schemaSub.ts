@@ -12,23 +12,25 @@ import { dialog } from 'electron';
 const logger = loggerService.withContext(LOG_MODULE.APP_PROTOCOL);
 
 /**
- * Handle zy://sub?lang={{lang}}&url={{url}}
+ * Handle zy://sub?lang={{lang}}&name={{name}}&url={{url}}
  */
 export async function handleSubProtocolUrl(url: URL) {
   const lang = url.searchParams.get('lang');
+  const name = url.searchParams.get('name');
   const subUrl = url.searchParams.get('url');
 
-  if (!lang || !subUrl) return;
-
-  logger.debug('Handling sub protocol URL', { lang, subUrl });
+  if (!subUrl) return;
 
   try {
     let filename = '';
     try {
-      filename = new URL(subUrl).pathname.split('/').pop() || '';
-    } catch {}
+      filename = name || new URL(subUrl).pathname.split('/').pop() || '';
+    } catch {
+    } finally {
+      logger.debug('Handling sub protocol URL', { filename, lang, subUrl });
+    }
 
-    const baseDir = join(APP_FILE_PATH, lang);
+    const baseDir = lang ? join(APP_FILE_PATH, lang) : APP_FILE_PATH;
     await ensureDir(baseDir);
 
     const defaultPath = filename ? join(baseDir, filename) : baseDir;
