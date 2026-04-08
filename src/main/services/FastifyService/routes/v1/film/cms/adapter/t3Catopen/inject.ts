@@ -26,7 +26,9 @@ const req = async (
         valueStartsWith(obj.headers, 'Content-Type', 'application/x-www-form-urlencoded'));
 
     if (isForm) {
+      obj.headers['Content-Type'] = 'application/x-www-form-urlencoded';
       obj.body = new URLSearchParams(obj.data).toString();
+      delete obj.postType;
     }
     delete obj.data;
   }
