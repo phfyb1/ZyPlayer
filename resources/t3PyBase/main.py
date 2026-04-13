@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# File  : main.py
+
 import argparse
 import asyncio
 import builtins
@@ -9,6 +12,7 @@ import signal
 import sys
 from typing import Any, Dict, List, Optional
 import zmq
+import traceback
 
 signal.signal(signal.SIGINT, lambda signum, frame: sys.exit(130))
 builtins.original_print = builtins.print
@@ -69,7 +73,7 @@ def get_spider(code_hash: int, code_str: str) -> Any:
     if spider_cls is None:
         raise ImportError("Spider class not found in module")
 
-    spider = spider_cls(t4_api="http://127.0.0.1:9978/proxy?do=py")
+    spider = spider_cls()
     return spider
 
 
@@ -88,8 +92,9 @@ def core(method: str, source_code: str, opts: List[Any]) -> Any:
 
     try:
         return sync_wrapper(method_obj, opts)
-    except Exception as exc:
-        raise RuntimeError(f"Failed to execute method '{method}': {exc}") from exc
+    except Exception as exc_e:
+        full_tb = traceback.format_exc()
+        raise RuntimeError(f"Failed to execute method '{method}':\n{full_tb}") from exc_e
 
 
 if __name__ == '__main__':
